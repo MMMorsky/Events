@@ -1,0 +1,43 @@
+<h4 id="notice"><%= notice %></h4>
+
+<div class="jumbotron">
+  <font color="white"><h1><%= @event.name %></h1></font>
+  <p><%= @event.preview %></p>
+
+</div>
+
+
+<div class="row">
+  <div class="jumbotron col-md-6">
+
+    <h2>Comments</h2>
+    <h2></h2>
+
+    <% @event.comments.each do |comment| %>
+        <p><%= comment.content %></p>
+        <p>---------</p>
+    <% end %>
+
+  </div>
+  <div class="jumbotron col-md-5">
+
+    <h2>Going</h2>
+  </div>
+</div>
+
+
+<div class="jumbotron">
+<%= form_for(@comment) do |f| %>
+    <%= f.hidden_field :event_id %>
+      <div class="field">
+        <h2>New message</h2>
+        <%= f.text_area :content, :cols => "50", :rows => "5" %>
+      </div>
+      <div class="actions">
+    <%= f.submit 'Comment', :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
+</div>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

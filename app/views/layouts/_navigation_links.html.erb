@@ -1,5 +1,5 @@
 <%# add navigation links to this file %>
-
+<li><%= link_to 'New event', new_event_path %></li>
 <% if not current_user.nil? %>
     <li>Signed in</li>
 <% end %>
