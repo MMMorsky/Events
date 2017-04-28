@@ -23,6 +23,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'bcrypt', '~> 3.1.7'
+
 ruby '2.3.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

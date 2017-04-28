@@ -6,13 +6,14 @@
 img {
   @extend .img-responsive;
   margin: 0 auto;
-  }
+}
+
 // override for the 'Home' navigation link
 .navbar-brand {
   color: #ffffff;
   font-family: ‘Arial Black’, Gadget, sans-serif;
   font-size: 200%;
-  }
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -20,19 +21,22 @@ img {
 .column {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .form {
   @extend .col-md-6;
-  }
+}
+
 .form-centered {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .submit {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-lg;
-  }
+}
 
 .row {
   margin: 1px;
@@ -42,8 +46,6 @@ img {
   background-color: #5cb85c;
   margin: 10px;
 }
-
-
 
 p {
   color: #ffffff;
@@ -61,16 +63,22 @@ puolikas {
   width: 50%;
 }
 
+li {
+  color: #ffffff;
+}
 
-// apply styles to HTML elements
-// to make views framework-neutral
-main {
+a.white {
+  color: #ffffff;
+ 
+}
+  main {
   @extend .container;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 15px; // accommodate the navbar
-  }
+}
+
 section {
   @extend .row;
   margin-top: 20px;
-  }
+}
