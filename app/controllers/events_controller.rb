@@ -12,6 +12,15 @@ class EventsController < ApplicationController
   def show
     @comment = Comment.new
     @comment.event = @event
+
+    if current_user
+      if current_user.is_attending? @event
+        @attandance = current_user.attendances.find { |m| m.event == @event }
+      else
+        @attandance = Attendance.new
+        @attandance.event = @event
+      end
+    end
   end
 
   # GET /events/new
@@ -64,13 +73,13 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:name, :preview, :date)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:name, :preview, :date)
+  end
 end
