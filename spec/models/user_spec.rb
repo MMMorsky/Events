@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
   end
 
   it "is saved" do
-    expect(User.count).to eq(1)
+    expect(User.count).to eq(2)
   end
 
 end

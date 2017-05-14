@@ -20,8 +20,9 @@
 </nav>
 
 <div class="text-center">
-<button type="button" class="btn btn-success btn-md">Sports</button>
-<button type="button" class="btn btn-success btn-md">Dance</button>
-<button type="button" class="btn btn-success btn-md">Food</button>
-<button type="button" class="btn btn-success btn-md">Music</button>
+  <%= link_to 'Sports', events_path(only:"sports"), class: "btn btn-success btn-md" %>
+  <%= link_to 'Dance', events_path(only:"dance"), class: "btn btn-success btn-md" %>
+  <%= link_to 'Food', events_path(only:"food"), class: "btn btn-success btn-md" %>
+  <%= link_to 'Music', events_path(only:"music"), class: "btn btn-success btn-md" %>
+
 </div>

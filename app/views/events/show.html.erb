@@ -1,4 +1,3 @@
-
 <div class="jumbotron">
   <font color="white"><h1><%= @event.name %></h1></font>
   <p><%= @event.preview %></p>
@@ -13,11 +12,17 @@
     <h2></h2>
 
     <% @event.comments[0...-1].each do |comment| %>
-        <p><%= comment.content %></p>
+        <p><%= comment.content %>
+          <kk></kk>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= comment.user.username %></p>
         <p>---------</p>
     <% end %>
     <% if @event.comments.count > 0 %>
-    <p><%= @event.comments.last.content %></p>
+        <p><%= @event.comments.last.content %>
+          <kk></kk>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @event.comments.last.user.username %>
+        </p>
+        </p>
     <% end %>
   </div>
   <div class="jumbotron col-md-5">
@@ -39,7 +44,7 @@
                 <%= f.submit 'Going', :class => 'btn btn-primary' %>
             <% end %>
         <% end %>
-  <% end %>
+    <% end %>
   </div>
 </div>
 

@@ -3,16 +3,20 @@
     <div class="jumbotron">
 
       <div style="clear: both">
-        <p style="float: right;"><%= event.date %></p>
+        <h3 style="float: right;"><%= event.date %></h3>
         <h2><%= event.name %></h2>
       </div>
       <div style="clear: both">
-      <p style="float: right;">
+        <p style="float: right;">
+
+          <%= event.category.name %>
+          <kk></kk>
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           <%= event.attendances.count %>
-        </p>
 
-      <p><%= event.preview %></p>
+
+        </p>
+        <p><%= event.preview %></p>
       </div>
 
       <%= link_to 'More info', event, class: "btn btn-primary" %>

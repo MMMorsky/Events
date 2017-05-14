@@ -1,34 +1,42 @@
 <div class="jumbotron">
   <h2>New Event</h2>
-<%= form_for(event) do |f| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <%= form_for(event) do |f| %>
+      <% if event.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+            <ul>
+              <% event.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <p></p>
+      <div class="field">
+        <%= f.label :preview %>
+        <%= f.text_area :preview, :cols => "75", :rows => "10" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :category_id %><br>
+        <%= f.select :category_id, options_from_collection_for_select(@categories, :id, :name, selected: @event.category_id) %>
+      </div>
+      <p></p>
+
+      <div class="field">
+        <%= f.label :date %>
+        <%= f.date_select :date %>
+      </div>
+      <p></p>
+      <div class="actions">
+        <%= f.submit 'Create Event', :class => 'btn btn-primary' %>
+      </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name  %>
-    <%= f.text_field :name  %>
-  </div>
-  <div class="field">
-    <%= f.label :preview %>
-    <%= f.text_area :preview, :cols => "75", :rows => "10" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 </div>

@@ -29,15 +29,11 @@ class CommentsController < ApplicationController
     @comment = Comment.create params.require(:comment).permit(:content, :event_id)
     current_user.comments << @comment
 
-    respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.event, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        redirect_to @comment.event, notice: 'Comment created!'
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        redirect_to @comment.event, notice: 'Comment is too short/long.'
       end
-    end
   end
 
   # PATCH/PUT /comments/1

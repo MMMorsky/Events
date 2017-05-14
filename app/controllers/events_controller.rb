@@ -1,10 +1,26 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :edit, :create, :update]
+
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+
+    only = params[:only] || 'all'
+
+    case only
+      when 'sports' then
+        @events = Event.all.where("category_id = '1'")
+      when 'dance' then
+        @events = Event.all.where("category_id = '2'")
+      when 'food' then
+        @events = Event.all.where("category_id = '3'")
+      when 'music' then
+        @events = Event.all.where("category_id = '4'")
+      when 'all' then
+        @events = Event.all
+    end
   end
 
   # GET /events/1
@@ -73,6 +89,10 @@ class EventsController < ApplicationController
   end
 
   private
+  def set_categories
+    @categories = Category.all
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
@@ -80,6 +100,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :preview, :date)
+    params.require(:event).permit(:name, :preview, :date, :category_id)
   end
 end
