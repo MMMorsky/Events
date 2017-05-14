@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :comments
   resources :events
   resources :users
-  resources :locations
   resource :session, only: [:new, :create, :destroy]
   root 'events#index'
   get 'signup', to: 'users#new'

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_signed_in, only: [:show, :new, :edit, :create, :update ]
 
   # GET /categories
   # GET /categories.json

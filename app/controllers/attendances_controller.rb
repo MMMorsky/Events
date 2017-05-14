@@ -1,5 +1,6 @@
 class AttendancesController < ApplicationController
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_signed_in, only: [:show, :new, :edit, :create, :update ]
 
   # GET /attendances
   # GET /attendances.json
