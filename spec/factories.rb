@@ -9,6 +9,11 @@ FactoryGirl.define do
   factory :event do
     name "Jalkapalloa"
     preview "Pelataan jalkapalloa keravan asemalla."
+    category
+  end
+
+  factory :category do
+    name "Sports"
   end
 
 

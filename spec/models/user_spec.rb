@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  category = FactoryGirl.create(:category)
   user = FactoryGirl.create(:user)
-  event = FactoryGirl.create(:event)
+  event = Event.new name: "Jalkapalloa", preview: "Jalkapalloa pelataan kentällä", category: category
   comment = Comment.new content: "Hieno matsi"
+
 
   event.comments << comment
   user.comments << comment

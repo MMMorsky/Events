@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe "Web pages" do
-  FactoryGirl.create(:event)
+  category = FactoryGirl.create(:category)
+  event = Event.new name: "Jalkapalloa", preview: "Jalkapalloa pelataan kentällä", category: category
   user = User.create username: "Timo", password: "raipe", password_confirmation: "raipe"
 
 
